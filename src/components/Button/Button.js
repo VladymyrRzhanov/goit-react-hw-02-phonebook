@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
+import s from "./Button.module.css";
 
 const Button = ({type,title}) => (
-    <button type={type}>
+    <button className={s.button} type={type}>
         {title}
     </button>
 )

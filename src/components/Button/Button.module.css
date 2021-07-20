@@ -1,0 +1,9 @@
+.button {
+  background-image: url(../../images/accept.svg);
+  width: 20px;
+  height: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  fill: red;
+}

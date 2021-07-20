@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from "../Button";
 import { v4 as uuidv4 } from 'uuid';
+import s from "./Form.module.css";
 
 
 export default class Form extends Component {
@@ -9,9 +10,7 @@ export default class Form extends Component {
     name: '',
     number: ''
   };
-
-    // contactId = uuidv4();
-    
+  
     handleInputChange = e => {
         const { name, value } = e.currentTarget;
         this.setState({
@@ -35,13 +34,13 @@ export default class Form extends Component {
         })
     }
 
-
     render() {
         const { name, number } = this.state;
         return (
-            <form onSubmit={this.handleSubmit}>
-                <label> Name
-                    <input
+            <form onSubmit={this.handleSubmit} className={s.form}>
+                <label className={s.inputContainer}>
+                    <span className={s.subtitle}>Name</span>
+                    <input className={s.input}
                         type="text"
                         name="name"
                         value={name}
@@ -51,9 +50,9 @@ export default class Form extends Component {
                         onChange={this.handleInputChange}
                     />
                 </label>
-                <label>
-                    Number
-                    <input
+                <label className={s.inputContainer}>
+                    <span className={s.subtitle}>Number</span>
+                    <input className={s.input}
                         type="tel"
                         name="number"
                         value={number}
