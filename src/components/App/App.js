@@ -1,25 +1,47 @@
-import logo from '../../logo.svg';
+import React, { Component } from 'react';
+import Form from "../Form";
+import Section from "../Section";
+import ContactsList from "../ContactsList";
+import Filter from "../Filter";
+import initialContacts from "../ContactsList/initialContacts.json";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export default class App extends Component {
+  state = {
+    contacts: initialContacts,
+    filter: ''
+  };
+  
+  onSubmitHandler = data => {
+    this.setState(({contacts}) => ({
+      contacts: [data, ...contacts]
+    }));
+  };
 
-export default App;
+  onFilterName = e => {
+    this.setState({filter: e.currentTarget.value})
+  }
+
+  getFilterName = () => {
+    const { filter, contacts } = this.state;
+    const normalizedContact = filter.toLowerCase();
+    return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedContact));
+  }
+
+  render() {
+    const { filter } = this.state;
+    const filteredContact = this.getFilterName();
+    return (
+      <>
+        <Section title={'Phonebook'}>
+          <Form onSubmit={this.onSubmitHandler} />
+        </Section>
+        <Section>
+          <Filter filter={filter} onFilterName={this.onFilterName}/>
+          <ContactsList contacts={filteredContact}/>
+        </Section>
+      </>
+    )
+  };
+};
+
