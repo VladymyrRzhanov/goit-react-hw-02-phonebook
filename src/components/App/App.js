@@ -28,6 +28,12 @@ export default class App extends Component {
     return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedContact));
   }
 
+  deleteContact = (id) => {
+    this.setState(({contacts}) => ({
+      contacts: contacts.filter(contact => contact.id !== id)
+    }))
+  }
+
   render() {
     const { filter } = this.state;
     const filteredContact = this.getFilterName();
@@ -38,7 +44,7 @@ export default class App extends Component {
         </Section>
         <Section>
           <Filter filter={filter} onFilterName={this.onFilterName}/>
-          <ContactsList contacts={filteredContact}/>
+          <ContactsList contacts={filteredContact} onDelete={this.deleteContact}/>
         </Section>
       </>
     )
