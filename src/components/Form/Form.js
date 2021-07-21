@@ -3,7 +3,6 @@ import Button from "../Button";
 import { v4 as uuidv4 } from 'uuid';
 import s from "./Form.module.css";
 
-
 export default class Form extends Component {
     state = {
     id: '',
@@ -62,7 +61,7 @@ export default class Form extends Component {
                         onChange={this.handleInputChange}
                     />
                 </label>
-                <Button type={"submit"} title={"Add contact"} />
+                <Button type={"submit"} className={"button"}/>
             </form>
         );
     };

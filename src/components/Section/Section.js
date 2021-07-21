@@ -10,4 +10,8 @@ const Section = ({ children }) => (
     </section>
 )
 
+Section.propTypes = {
+    children: PropTypes.node,
+}
+
 export default Section;

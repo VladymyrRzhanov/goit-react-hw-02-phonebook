@@ -4,7 +4,7 @@ import Section from "../Section";
 import ContactsList from "../ContactsList";
 import Filter from "../Filter";
 import initialContacts from "../ContactsList/initialContacts.json";
-import s from'./App.module.css';
+import s from './App.module.css';
 
 export default class App extends Component {
   state = {
@@ -49,7 +49,7 @@ export default class App extends Component {
         <Section>
           <h2 className={s.subtitle}>Contacts</h2>
           <Filter filter={filter} onFilterName={this.onFilterName}/>
-          <ContactsList contacts={filteredContact} onDelete={this.deleteContact}/>
+          <ContactsList contacts={filteredContact} onDelete={this.deleteContact} />
         </Section>
       </>
     )
