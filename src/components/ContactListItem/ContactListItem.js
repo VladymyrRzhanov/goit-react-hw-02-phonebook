@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import s from './ContactListItem.module.css';
 
 const ContactListItem = ({ onDelete, name, number }) => (
-  <li className={s.item}>
+  <>
     <button className={s.button} type="button" onClick={onDelete}></button>
     <div className={s.data}>
       <span className={s.name}>{name}:</span>
       <span className={s.number}>{number}</span>
     </div>
-  </li>
+  </>
 );
 
 ContactListItem.propTypes = {

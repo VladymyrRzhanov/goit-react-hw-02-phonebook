@@ -7,12 +7,13 @@ const ContactsList = ({ contacts, onDelete }) => (
   <div className={s.contacts}>
     <ul className={s.list}>
       {contacts.map(({ id, name, number }) => (
-        <ContactListItem
-          key={id}
-          name={name}
-          number={number}
-          onDelete={() => onDelete(id)}
-        />
+        <li className={s.item} key={id}>
+          <ContactListItem
+            name={name}
+            number={number}
+            onDelete={() => onDelete(id)}
+          />
+        </li>
       ))}
     </ul>
   </div>
