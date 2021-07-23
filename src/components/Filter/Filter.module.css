@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
+  margin-bottom: 30px;
 }
 
 .title {
@@ -13,7 +14,6 @@
 
 .input {
   width: 300px;
-  margin-bottom: 20px;
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 5px;

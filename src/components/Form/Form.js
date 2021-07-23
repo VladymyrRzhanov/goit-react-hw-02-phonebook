@@ -10,8 +10,7 @@ export default class Form extends Component {
   };
 
   static props = {
-    name: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
+    onSubmit: PropTypes.func.isRequired,
   };
 
   handleInputChange = e => {
