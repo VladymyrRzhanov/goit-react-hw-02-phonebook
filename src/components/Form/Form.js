@@ -5,7 +5,6 @@ import s from "./Form.module.css";
 
 export default class Form extends Component {
     state = {
-    id: '',
     name: '',
     number: ''
   };
@@ -27,7 +26,6 @@ export default class Form extends Component {
 
     reset = () => {
         this.setState({
-            id: '',
             name: '',
             number: ''
         })
